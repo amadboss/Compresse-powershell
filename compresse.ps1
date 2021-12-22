@@ -23,9 +23,6 @@ ForEach ($group in $groups) {
     ForEach($file in $group.Group){
         $tmp = $file.Name
         $tmp2 = ($group.Name + ".zip")
-        #write-host "archivage theorique de $tmp dans $tmp2"
-        #write-host ""
-        #write-host "suppresion theorique de $tmp"
         Compress-Archive -path <PATH>\$tmp -update -DestinationPath <PATH>\$tmp2
         remove-item <PATH>\$tmp
     }
