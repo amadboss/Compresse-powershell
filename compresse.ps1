@@ -9,10 +9,6 @@ Copy-Item "<PATH>\$line" -Destination "<destination path>"}
 else{write-host "$tmp already saved"}
 }
 
-
-
-
-
 #Creating group depending of last modified date
 $groups = Get-ChildItem "<PATH>" | 
     Where-Object { ($_.LastWriteTime -lt (Get-Date).AddDays(-8)) -and ($_.psIsContainer -eq $false) } | 
