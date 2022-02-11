@@ -11,7 +11,7 @@ Copy-Item "<PATH>\$line" -Destination "<destination path>"}
 }
 
 #Creating group depending of last modified date
-$groups = Get-ChildItem "<PATH>" | 
+$groups = Get-ChildItem -filter '*.sql' "<PATH>" | 
     Where-Object { ($_.LastWriteTime -lt (Get-Date).AddDays(-8)) -and ($_.psIsContainer -eq $false) } | 
     group {"{0:MMMM} {0:yyyy}" -f $_.lastwritetime}
 
